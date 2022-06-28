@@ -66,22 +66,18 @@ function App() {
       <Categories chooseCategory={chooseCategory} />
 
       <Items items={currentItems} showFullItem={showFull} onAdd={AddToOrder} />
-      {showFullItem && <ShowFullItem items={currentItems} />}
+      {showFullItem && <ShowFullItem item={showFullItem} />}
       <Footer />
     </div>
   );
 
 
-  // function showFull() {
-  //   setShowFullItem(!showFullItem)
-  // }
   function showFull(e) {
 
     setShowFullItem(e)
     if (showFullItem == e) {
-      setShowFullItem(!showFullItem)
+      setShowFullItem(false)
     }
-    console.log(typeof e)
   }
 
   function chooseCategory(category) {
