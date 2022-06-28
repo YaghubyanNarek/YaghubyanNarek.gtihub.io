@@ -3,6 +3,7 @@ import Categories from './components/Categories';
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Items from './components/Items';
+import ShowFullItem from './components/ShowFullItem';
 
 
 function App() {
@@ -63,11 +64,17 @@ function App() {
       <div className="wrapper">
         <Header orders={orders} onDelete={deleteOrder} />
         <Categories chooseCategory={chooseCategory} />
-        <Items items={currentItems} onAdd={AddToOrder} />
+       
+        <Items items={currentItems} showFullItem={showFull} onAdd={AddToOrder} />
+        {showFullItem && <ShowFullItem items={currentItems}/>}
         <Footer />
       </div>
   );
   
+
+  function showFull() {
+    setShowFullItem(!showFullItem)
+  }
 
   function chooseCategory(category){
     if(category !== 'all'){

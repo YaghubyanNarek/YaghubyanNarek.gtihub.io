@@ -26,6 +26,92 @@ header .logo{
   font-size: 20px;
 }
 
+.burger__menu{
+  width: 40px;
+  height: 25px;
+  position: relative;
+  float: right;
+  margin-left: 20px;
+  display: none;
+  cursor: pointer;
+}
+
+.burger__menu div{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background:#333;
+}
+
+.burger__menu div:first-child{
+  top: 0;
+}
+
+.burger__menu div:nth-child(2){
+  top: 50%;
+  transform:translateY(-50%);
+}
+
+.burger__menu div:nth-child(3){
+  top: 50%;
+  transform:translateY(-50%);
+}
+
+.burger__menu div:last-child{
+  bottom: 0;
+}
+
+.burger{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: #bcbcbc;
+  left: 0;
+  top: -1000px;
+  z-index: 1000000;
+  transition: 500ms ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.burgerOpen{
+  display: block;
+  top: -50px !important;
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.close{
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  color:#222;
+  font-size: 35px !important;
+  cursor: pointer;
+}
+
+.nav__burger{
+  list-style: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  transform: translate(-50%,-50%);
+}
+
+.nav__burger li + li{
+  margin-top: 25px;
+}
+
+.nav__burger li {
+  font-size: 22px;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 header ul.nav{
   float: right;
   list-style: none;
@@ -152,8 +238,11 @@ header .presentation::before{
   color: white;
 }
 
+.categories{
+  display: flex;
+}
+
 .categories div{
-  display:inline-block;
   background:#f2f2f2;
   border-radius: 50px;
   padding: 10px 20px;
@@ -235,4 +324,49 @@ main .add-to-cart:hover{
 footer{
   text-align: center;
   margin-top: 100px;
+}
+
+@media screen and (max-width:990px){
+  main{
+    flex-direction: column;
+    align-items: center;
+  }
+  main .item{
+    width: 62%;
+  }
+}
+
+@media screen and (max-width:678px) {
+  .categories {
+    flex-direction: column;
+  }
+  .categories div{
+    align-self: center;
+    padding: 10px 40px;
+  }
+  .nav{
+    display: none;
+  }
+  .burger__menu{
+    display: inline-block;
+  }
+  header .shop-cart-button{
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  header .shop-cart {
+    width: 280px;
+  }
+  main .item{
+    width: 80%;
+  }
+  .presentation::after{
+    width: 265px !important;
+    font-size: 36px !important;
+  }
+  .presentation::before{
+    width: 150px !important;
+  }
 }

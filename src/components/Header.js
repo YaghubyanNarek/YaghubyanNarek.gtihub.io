@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa"
 import Order from './Order';
 
 const showOrders = (props) => {
@@ -24,15 +25,34 @@ const showNothing = () => {
 
 export default function Header(props) {
   const [cartOpen, setCartOpen] = useState(false)
+  const [burger,Setburger] = useState(false)
   return (
     <header>
       <div>
+        <div className={`burger ${burger && 'burgerOpen'}`}>
+            <FaTimes className='close' onClick={() =>{
+              Setburger(!burger)
+            }}/>
+            <ul className='nav__burger'>
+              <li>Про нас</li>
+              <li>Контакты</li>
+              <li>Кабинет</li>
+            </ul>
+        </div>
         <span className="logo">House Staff</span>
         <ul className='nav'>
           <li>Про нас</li>
           <li>Контакты</li>
           <li>Кабинет</li>
         </ul>
+        <div className="burger__menu" onClick={() =>{
+          Setburger(!burger)
+        }}>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <FaShoppingCart
           onClick={() => setCartOpen(!cartOpen)}
           className={`shop-cart-button ${cartOpen && 'active '}`}
