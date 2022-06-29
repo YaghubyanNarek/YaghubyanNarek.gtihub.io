@@ -60,6 +60,7 @@ function App() {
   const [orders, setOrders] = useState([])
   const [currentItems, setCurrentItems] = useState(state)
   const [showFullItem, setShowFullItem] = useState(false)
+  document.title = 'House Staff'
   return (
     <div className="wrapper">
       <Header orders={orders} onDelete={deleteOrder} />
