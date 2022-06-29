@@ -5,7 +5,7 @@ export default function ShowFullItem(props) {
   return (
     <div className='full-item'>
         
-        <ShowItem mainItem={props.item} key={props.item.id} />
+        <ShowItem mainItem={props.item} key={props.item.id} showFullItem={props.showFullItem} onAdd={props.onAdd} />
     </div>
   )
 }

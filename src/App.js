@@ -66,7 +66,7 @@ function App() {
       <Categories chooseCategory={chooseCategory} />
 
       <Items items={currentItems} showFullItem={showFull} onAdd={AddToOrder} />
-      {showFullItem && <ShowFullItem item={showFullItem} />}
+      {showFullItem && <ShowFullItem showFullItem={showFull} item={showFullItem} onAdd={AddToOrder} />}
       <Footer />
     </div>
   );
