@@ -65,7 +65,6 @@ function App() {
     <div className="wrapper">
       <Header orders={orders} onDelete={deleteOrder} />
       <Categories chooseCategory={chooseCategory} />
-
       <Items items={currentItems} showFullItem={showFull} onAdd={AddToOrder} />
       {showFullItem && <ShowFullItem showFullItem={showFull} item={showFullItem} onAdd={AddToOrder} />}
       <Footer />
